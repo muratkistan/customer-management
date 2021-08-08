@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www/thymeleaf.org">
+
+<head>
+	<meta charset="ISO=8859-1">
+	<title>Customer Management System</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+		integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+
+<body style="background-color:#E6E3A0;">
+
+
+
+	<div class="container">
+	<h2 class="text-center">All Customers Listed</h2>
+		
+		<div class="row">
+			<div class="col-lg-3">
+				<a th:href = "@{/customers/add}" class= "btn btn-success btn-sm mb-3">Add Customer</a>
+			</div>
+		</div>
+		<table class="table table-success table-striped">
+			<thead class="thead-dark">
+				<tr>
+
+					<th scope="col">First Name</th>
+					<th scope="col">Last Name</th>
+					<th scope="col">Email</th>
+					<th scope="col">Phone Number</th>
+					<th scope="col">Address</th>
+					<th scope="col">Edit</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="customer: ${customers}">
+					
+					<td th:text="${customer.firstName}"></td>
+					<td th:text="${customer.lastName}"></td>
+					<td th:text="${customer.email}"></td>
+					<td th:text="${customer.phoneNumber}"></td>
+					<td th:text="${customer.address}"></td>
+					<td>
+					<a th:href="@{/customers/update/{id}(id=${customer.id})}" class= "btn btn-primary">Update</a>
+					<a th:href="@{/customers/delete/{id}(id=${customer.id})}" class= "btn btn-danger">Delete</a>
+					</td>
+				</tr>
+
+			</tbody>
+		</table>
+	</div>
+</body>
+
+</html>

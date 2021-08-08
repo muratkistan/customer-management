@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www/thymeleaf.org">
+
+<head>
+	<meta charset="ISO=8859-1">
+	<title>Add Customer</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+		integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+
+<body>
+
+<div class = "container">
+
+	<div class="row">
+		<div class ="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+		<h1 class="text-center"> Add Customer</h1>
+		<div class= "card-body" style="background-color:#A2EF6E;">
+			<form th:action= "@{/customers}" th:object= "${customer}" method="POST">
+			<div class = "form-group">
+			
+				<label>First Name</label>
+				<input type="text" name="firstname" th:field = "*{firstName}" placeholder="Enter First Name" class= "form-control"/>
+				
+				<label>Last Name</label>
+				<input type="text" name="lastname" th:field = "*{lastName}" placeholder=" Enter last Name" class= "form-control"/>
+				
+				<label>Email</label>
+				<input type="text" name="email" th:field = "*{email}" placeholder="Enter email" class= "form-control"/>
+				
+				<label>Phone Number</label>
+				<input type="text" name="phoneNumber" th:field = "*{phoneNumber}" placeholder="Enter Phone Number" class= "form-control"/>
+				
+				<label>Address</label>
+				<input type="text" name="address" th:field = "*{address}" placeholder="Enter Address" class= "form-control"/>
+				
+			
+			</div> 
+			
+			<div class= "box-footer">
+				<button type="submit" class= "btn btn-success">Save</button> 
+			</div>
+			
+			</form>
+		
+		</div>
+		
+		</div>
+	
+	
+	</div>
+
+</div>
+
+
+
+</body>
+
+</html>
